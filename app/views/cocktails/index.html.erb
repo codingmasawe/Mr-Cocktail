@@ -1,14 +1,33 @@
-<h1>Here are all the cocktaills</h1>
 
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Bar Treptow</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <button class="btn btn-primary btn-large">
 
+        <%= link_to "New Cocktail", new_cocktail_path %>
+      </button>
+    </p>
+  </div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= cocktail.name %></li>
-  <% end %>
-</ul>
+  <h1>Here are all the cocktaills</h1>
+  <!--  add link to cocktail
+  -->
 
-<button class="btn btn-primary">
+  <div>
+    <% @cocktails.each do |cocktail| %>
 
-<%= link_to "New Cocktail", new_cocktail_path %>
-</button>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class:"card-title" %>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

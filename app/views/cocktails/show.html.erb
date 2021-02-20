@@ -1,6 +1,24 @@
-<h1>show one cocktail</h1>
+<div class="container">
+  <h1>show one cocktail</h1>
 
 
-<%= @cocktail.name %>
- <br>
-<%= link_to "Back to list of cocktails", root_path %>
+<%= @number_2 %>
+  <div>
+    <%= @cocktail.name  %>
+  </div>
+
+  <ul>
+    <% @cocktail.doses.each do |dose|  %>
+    <li>
+      <%= dose.description %>
+      <%= dose.ingredient.name %>
+    </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+
+
+   <br>
+  <%= link_to "Back to list of cocktails", root_path %>
+</div>
