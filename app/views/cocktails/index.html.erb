@@ -1,33 +1,21 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.qiez.de/uploads/2019/06/13105909/oh20190222-191734-3672-hdr-web-e1560416475339-910x511.jpg);">
+    <h1>Welcome to Bar Treptow!</h1>
+    <p>Change your life and learn to drink.</p>
+        <%= link_to "New Cocktail", new_cocktail_path, class: "button" %>
+</div>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1 class="display-4">Welcome to Bar Treptow</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <button class="btn btn-primary btn-large">
 
-        <%= link_to "New Cocktail", new_cocktail_path %>
-      </button>
-    </p>
-  </div>
-
-  <h1>Here are all the cocktaills</h1>
-  <!--  add link to cocktail
-  -->
-
-  <div>
+  <div class="container">
     <% @cocktails.each do |cocktail| %>
-
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <%= link_to cocktail.name, cocktail_path(cocktail), class:"card-title" %>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text">This cocktails was created  <%= cocktail.created_at%> and updated last <%= cocktail.updated_at%></p>
+        <%= link_to "Whats in there?", cocktail_path(cocktail), class: "button"%>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
